@@ -1,0 +1,1047 @@
+{
+  "Full resolved config and hostRules including presets": [
+    {
+      "config": {
+        "detectGlobalManagerConfig": false,
+        "detectHostRulesFromEnv": false,
+        "postUpgradeTasks": {
+          "commands": [],
+          "fileFilters": [],
+          "executionMode": "update"
+        },
+        "onboardingBranch": "renovate/configure",
+        "onboardingCommitMessage": null,
+        "onboardingConfigFileName": "renovate.json",
+        "onboardingNoDeps": false,
+        "onboardingPrTitle": "Configure Renovate",
+        "configMigration": false,
+        "productLinks": {
+          "documentation": "https://docs.renovatebot.com/",
+          "help": "https://github.com/renovatebot/renovate/discussions",
+          "homepage": "https://github.com/renovatebot/renovate"
+        },
+        "globalExtends": [],
+        "description": [
+          "Apply label `renovate` to PRs.",
+          "Limit to maximum 10 open PRs at any time.",
+          "Evaluate schedules according to timezone `Asia/Tokyo`.",
+          "Raise PR when vulnerability alerts are detected with label `security`.",
+          "If Renovate detects semantic commits, it will use semantic commit type `chore` for all commits.",
+          "Schedule monthly."
+        ],
+        "enabled": true,
+        "repositoryCache": "disabled",
+        "repositoryCacheType": "local",
+        "force": {
+          "repositories": [
+            "korosuke613/renovate-playground"
+          ],
+          "dryRun": "full",
+          "printConfig": true,
+          "schedule": []
+        },
+        "draftPR": false,
+        "printConfig": true,
+        "composerIgnorePlatformReqs": [],
+        "onboarding": true,
+        "onboardingConfig": {
+          "$schema": "https://docs.renovatebot.com/renovate-schema.json"
+        },
+        "includeForks": false,
+        "forkToken": null,
+        "requireConfig": "required",
+        "optimizeForDisabled": false,
+        "dependencyDashboard": true,
+        "dependencyDashboardApproval": false,
+        "dependencyDashboardAutoclose": false,
+        "dependencyDashboardTitle": "Dependency Dashboard",
+        "dependencyDashboardHeader": "This issue lists Renovate updates and detected dependencies. Read the [Dependency Dashboard](https://docs.renovatebot.com/key-concepts/dashboard/) docs to learn more.",
+        "dependencyDashboardFooter": null,
+        "dependencyDashboardLabels": [
+          "renovate"
+        ],
+        "configWarningReuseIssue": true,
+        "privateKeyPath": null,
+        "privateKeyPathOld": null,
+        "encrypted": null,
+        "timezone": "Asia/Tokyo",
+        "schedule": [],
+        "automergeSchedule": [
+          "at any time"
+        ],
+        "updateNotScheduled": true,
+        "persistRepoData": false,
+        "ignorePlugins": false,
+        "ignoreScripts": true,
+        "username": null,
+        "password": null,
+        "npmrc": null,
+        "npmrcMerge": false,
+        "npmToken": null,
+        "updateLockFiles": true,
+        "skipInstalls": null,
+        "baseBranches": [],
+        "useBaseBranchConfig": "none",
+        "gitIgnoredAuthors": [],
+        "enabledManagers": [],
+        "includePaths": [],
+        "ignorePaths": [
+          "**/node_modules/**",
+          "**/bower_components/**"
+        ],
+        "excludeCommitPaths": [],
+        "registryAliases": {},
+        "defaultRegistryUrls": null,
+        "registryUrls": null,
+        "extractVersion": null,
+        "versioning": null,
+        "azureWorkItemId": 0,
+        "azureAutoApprove": false,
+        "ignoreDeps": [],
+        "updateInternalDeps": false,
+        "packageRules": [
+          {
+            "matchPackagePatterns": [
+              "*"
+            ],
+            "semanticCommitType": "chore"
+          },
+          {
+            "groupName": "golang-version",
+            "matchDatasources": [
+              "golang-version"
+            ],
+            "matchManagers": [
+              "gomod"
+            ]
+          },
+          {
+            "groupName": "golang-version",
+            "matchManagers": [
+              "regex"
+            ],
+            "matchPackageNames": [
+              "tool-versions/golang-version"
+            ]
+          },
+          {
+            "groupName": "golangci-lint",
+            "matchManagers": [
+              "regex"
+            ],
+            "matchPackageNames": [
+              "golangci/golangci-lint"
+            ]
+          }
+        ],
+        "pinDigests": false,
+        "separateMajorMinor": true,
+        "separateMultipleMajor": false,
+        "separateMinorPatch": false,
+        "ignoreUnstable": true,
+        "ignoreDeprecated": true,
+        "followTag": null,
+        "respectLatest": true,
+        "rangeStrategy": "replace",
+        "branchPrefix": "renovate/",
+        "branchPrefixOld": "renovate/",
+        "bumpVersion": null,
+        "major": {},
+        "minor": {},
+        "patch": {},
+        "pin": {
+          "rebaseWhen": "behind-base-branch",
+          "groupName": "Pin Dependencies",
+          "groupSlug": "pin-dependencies",
+          "commitMessageAction": "Pin",
+          "group": {
+            "commitMessageTopic": "dependencies",
+            "commitMessageExtra": ""
+          }
+        },
+        "digest": {
+          "branchTopic": "{{{depNameSanitized}}}-digest",
+          "commitMessageExtra": "to {{newDigestShort}}",
+          "commitMessageTopic": "{{{depName}}} digest"
+        },
+        "pinDigest": {
+          "groupName": "Pin Dependencies",
+          "groupSlug": "pin-dependencies",
+          "commitMessageAction": "Pin",
+          "group": {
+            "commitMessageTopic": "dependencies",
+            "commitMessageExtra": ""
+          }
+        },
+        "rollback": {
+          "branchTopic": "{{{depNameSanitized}}}-rollback",
+          "commitMessageAction": "Roll back",
+          "semanticCommitType": "fix"
+        },
+        "replacement": {
+          "branchTopic": "{{{depNameSanitized}}}-replacement",
+          "commitMessageAction": "Replace",
+          "commitMessageExtra": "with {{newName}} {{#if isMajor}}{{{prettyNewMajor}}}{{else}}{{#if isSingleVersion}}{{{prettyNewVersion}}}{{else}}{{{newValue}}}{{/if}}{{/if}}",
+          "prBodyNotes": [
+            "This is a special PR that replaces `{{{depNameSanitized}}}` with the community suggested minimal stable replacement version."
+          ]
+        },
+        "semanticCommits": "enabled",
+        "semanticCommitType": "chore",
+        "semanticCommitScope": "deps",
+        "rollbackPrs": false,
+        "recreateClosed": false,
+        "rebaseWhen": "auto",
+        "rebaseLabel": "rebase",
+        "stopUpdatingLabel": "stop-updating",
+        "stabilityDays": 0,
+        "internalChecksFilter": "strict",
+        "prCreation": "immediate",
+        "prNotPendingHours": 25,
+        "prHourlyLimit": 0,
+        "prConcurrentLimit": 10,
+        "branchConcurrentLimit": null,
+        "prPriority": 0,
+        "bbUseDefaultReviewers": true,
+        "automerge": false,
+        "automergeType": "pr",
+        "automergeStrategy": "auto",
+        "automergeComment": "automergeComment",
+        "ignoreTests": false,
+        "transitiveRemediation": false,
+        "vulnerabilityAlerts": {
+          "groupName": null,
+          "schedule": [],
+          "dependencyDashboardApproval": false,
+          "stabilityDays": 0,
+          "rangeStrategy": "update-lockfile",
+          "commitMessageSuffix": "[SECURITY]",
+          "branchTopic": "{{{datasource}}}-{{{depName}}}-vulnerability",
+          "prCreation": "immediate",
+          "enabled": true,
+          "labels": [
+            "security"
+          ]
+        },
+        "pruneBranchAfterAutomerge": true,
+        "branchName": "{{{branchPrefix}}}{{{additionalBranchPrefix}}}{{{branchTopic}}}",
+        "additionalBranchPrefix": "",
+        "branchTopic": "{{{depNameSanitized}}}-{{{newMajor}}}{{#if separateMinorPatch}}{{#if isPatch}}.{{{newMinor}}}{{/if}}{{/if}}.x{{#if isLockfileUpdate}}-lockfile{{/if}}",
+        "commitMessage": "{{{commitMessagePrefix}}} {{{commitMessageAction}}} {{{commitMessageTopic}}} {{{commitMessageExtra}}} {{{commitMessageSuffix}}}",
+        "commitBody": null,
+        "commitBodyTable": false,
+        "commitMessagePrefix": null,
+        "commitMessageAction": "Update",
+        "commitMessageTopic": "dependency {{depName}}",
+        "commitMessageExtra": "to {{#if isPinDigest}}{{{newDigestShort}}}{{else}}{{#if isMajor}}{{prettyNewMajor}}{{else}}{{#if isSingleVersion}}{{prettyNewVersion}}{{else}}{{#if newValue}}{{{newValue}}}{{else}}{{{newDigestShort}}}{{/if}}{{/if}}{{/if}}{{/if}}",
+        "commitMessageSuffix": null,
+        "prBodyTemplate": "{{{header}}}{{{table}}}{{{warnings}}}{{{notes}}}{{{changelogs}}}{{{configDescription}}}{{{controls}}}{{{footer}}}",
+        "prTitle": null,
+        "prHeader": null,
+        "prFooter": "This PR has been generated by [Renovate Bot](https://github.com/renovatebot/renovate).",
+        "lockFileMaintenance": {
+          "enabled": false,
+          "recreateClosed": true,
+          "rebaseStalePrs": true,
+          "branchTopic": "lock-file-maintenance",
+          "commitMessageAction": "Lock file maintenance",
+          "commitMessageTopic": null,
+          "commitMessageExtra": null,
+          "schedule": [
+            "before 5am on monday"
+          ],
+          "groupName": null,
+          "prBodyDefinitions": {
+            "Change": "All locks refreshed"
+          }
+        },
+        "hashedBranchLength": null,
+        "groupName": "all",
+        "groupSlug": null,
+        "group": {
+          "branchTopic": "{{{groupSlug}}}",
+          "commitMessageTopic": "{{{groupName}}}"
+        },
+        "labels": [
+          "renovate"
+        ],
+        "addLabels": [],
+        "assignees": [],
+        "assigneesFromCodeOwners": false,
+        "assigneesSampleSize": null,
+        "assignAutomerge": false,
+        "reviewers": [],
+        "reviewersFromCodeOwners": false,
+        "filterUnavailableUsers": false,
+        "confidential": false,
+        "reviewersSampleSize": null,
+        "additionalReviewers": [],
+        "fileMatch": [],
+        "js": {},
+        "golang": {
+          "commitMessageTopic": "module {{depName}}"
+        },
+        "postUpdateOptions": [
+          "gomodTidy"
+        ],
+        "ruby": {},
+        "rust": {},
+        "node": {
+          "commitMessageTopic": "Node.js"
+        },
+        "docker": {
+          "versioning": "docker"
+        },
+        "php": {},
+        "python": {},
+        "constraints": {},
+        "java": {},
+        "dotnet": {},
+        "hostRules": [],
+        "prBodyDefinitions": {
+          "Package": "{{{depNameLinked}}}",
+          "Type": "{{{depType}}}",
+          "Update": "{{{updateType}}}",
+          "Current value": "{{{currentValue}}}",
+          "New value": "{{{newValue}}}",
+          "Change": "`{{{displayFrom}}}` -> `{{{displayTo}}}`",
+          "Pending": "{{{displayPending}}}",
+          "References": "{{{references}}}",
+          "Package file": "{{{packageFile}}}"
+        },
+        "prBodyColumns": [
+          "Package",
+          "Type",
+          "Update",
+          "Change",
+          "Pending"
+        ],
+        "prBodyNotes": [],
+        "suppressNotifications": [
+          "deprecationWarningIssues"
+        ],
+        "pruneStaleBranches": true,
+        "unicodeEmoji": true,
+        "gitLabIgnoreApprovals": false,
+        "regexManagers": [
+          {
+            "fileMatch": [
+              "^.tool-versions$"
+            ],
+            "matchStrings": [
+              "golang (?<currentValue>\\d+\\.\\d+\\.\\d+)"
+            ],
+            "datasourceTemplate": "golang-version",
+            "depNameTemplate": "tool-versions/golang-version"
+          },
+          {
+            "fileMatch": [
+              "^.tool-versions$"
+            ],
+            "matchStrings": [
+              "golangci-lint (?<currentValue>\\d+\\.\\d+\\.\\d+)"
+            ],
+            "datasourceTemplate": "github-releases",
+            "depNameTemplate": "golangci/golangci-lint",
+            "extractVersionTemplate": "^v(?<version>.*)$"
+          }
+        ],
+        "fetchReleaseNotes": true,
+        "cloneSubmodules": false,
+        "ignorePrAuthor": false,
+        "updatePinnedDependencies": true,
+        "gitUrl": "default",
+        "writeDiscoveredRepos": null,
+        "platformAutomerge": false,
+        "userStrings": {
+          "ignoreTopic": "Renovate Ignore Notification",
+          "ignoreMajor": "As this PR has been closed unmerged, Renovate will ignore this upgrade and you will not receive PRs for *any* future {{{newMajor}}}.x releases. However, if you upgrade to {{{newMajor}}}.x manually then Renovate will reenable minor and patch updates automatically.",
+          "ignoreDigest": "As this PR has been closed unmerged, Renovate will ignore this upgrade and you will not receive PRs for the `{{{depName}}}` `{{{newDigestShort}}}` update again.",
+          "ignoreOther": "As this PR has been closed unmerged, Renovate will now ignore this update ({{{newValue}}}). You will still receive a PR once a newer version is released, so if you wish to permanently ignore this dependency, please add it to the `ignoreDeps` array of your renovate config."
+        },
+        "platformCommit": false,
+        "branchNameStrict": false,
+        "ansible": {
+          "fileMatch": [
+            "(^|/)tasks/[^/]+\\.ya?ml$"
+          ]
+        },
+        "ansible-galaxy": {
+          "fileMatch": [
+            "(^|/)requirements\\.ya?ml$",
+            "(^|/)galaxy\\.ya?ml$"
+          ]
+        },
+        "argocd": {
+          "fileMatch": []
+        },
+        "asdf": {
+          "fileMatch": [
+            "(^|/)\\.tool-versions$"
+          ]
+        },
+        "azure-pipelines": {
+          "fileMatch": [
+            "azure.*pipelines?.*\\.ya?ml$"
+          ],
+          "enabled": false
+        },
+        "batect": {
+          "fileMatch": [
+            "(^|/)batect(-bundle)?\\.yml$"
+          ]
+        },
+        "batect-wrapper": {
+          "fileMatch": [
+            "(^|/)batect$"
+          ],
+          "versioning": "semver"
+        },
+        "bazel": {
+          "fileMatch": [
+            "(^|/)WORKSPACE(|\\.bazel)$",
+            "\\.bzl$"
+          ]
+        },
+        "bazelisk": {
+          "fileMatch": [
+            "(^|\\/)\\.bazelversion$"
+          ],
+          "pinDigests": false
+        },
+        "bitbucket-pipelines": {
+          "fileMatch": [
+            "(^|/)\\.?bitbucket-pipelines\\.ya?ml$"
+          ]
+        },
+        "buildkite": {
+          "fileMatch": [
+            "buildkite\\.ya?ml",
+            "\\.buildkite/.+\\.ya?ml$"
+          ],
+          "commitMessageTopic": "buildkite plugin {{depName}}",
+          "commitMessageExtra": "to {{#if isMajor}}{{{prettyNewMajor}}}{{else}}{{{newValue}}}{{/if}}"
+        },
+        "bundler": {
+          "fileMatch": [
+            "(^|/)Gemfile$"
+          ],
+          "versioning": "ruby"
+        },
+        "cake": {
+          "fileMatch": [
+            "\\.cake$"
+          ]
+        },
+        "cargo": {
+          "commitMessageTopic": "Rust crate {{depName}}",
+          "fileMatch": [
+            "(^|/)Cargo\\.toml$"
+          ],
+          "versioning": "cargo",
+          "rangeStrategy": "bump"
+        },
+        "cdnurl": {
+          "fileMatch": [],
+          "versioning": "semver"
+        },
+        "circleci": {
+          "fileMatch": [
+            "(^|/)\\.circleci/config\\.yml$"
+          ]
+        },
+        "cloudbuild": {
+          "fileMatch": [
+            "(^|/)cloudbuild\\.ya?ml"
+          ]
+        },
+        "cocoapods": {
+          "fileMatch": [
+            "(^|/)Podfile$"
+          ],
+          "versioning": "ruby"
+        },
+        "composer": {
+          "fileMatch": [
+            "(^|/)([\\w-]*)composer\\.json$"
+          ],
+          "versioning": "composer"
+        },
+        "conan": {
+          "fileMatch": [
+            "(^|/)conanfile\\.(txt|py)$"
+          ],
+          "datasource": "conan",
+          "versioning": "conan",
+          "rangeStrategy": "bump",
+          "enabled": false
+        },
+        "deps-edn": {
+          "fileMatch": [
+            "(^|/)(?:deps|bb)\\.edn$"
+          ],
+          "versioning": "maven"
+        },
+        "docker-compose": {
+          "fileMatch": [
+            "(^|/)(?:docker-)?compose[^/]*\\.ya?ml$"
+          ]
+        },
+        "dockerfile": {
+          "fileMatch": [
+            "(^|/|\\.)Dockerfile$",
+            "(^|/)Dockerfile[^/]*$"
+          ]
+        },
+        "droneci": {
+          "fileMatch": [
+            "(^|/)\\.drone\\.yml$"
+          ]
+        },
+        "fleet": {
+          "fileMatch": [
+            "(^|/)fleet\\.ya?ml"
+          ]
+        },
+        "flux": {
+          "fileMatch": [
+            "(^|\\/)flux-system\\/(?:.+\\/)?gotk-components\\.yaml$"
+          ]
+        },
+        "fvm": {
+          "fileMatch": [
+            "(^|\\/)\\.fvm\\/fvm_config\\.json$"
+          ],
+          "versioning": "semver"
+        },
+        "git-submodules": {
+          "enabled": false,
+          "versioning": "git",
+          "fileMatch": [
+            "(^|/)\\.gitmodules$"
+          ]
+        },
+        "github-actions": {
+          "fileMatch": [
+            "^(workflow-templates|\\.github\\/workflows)\\/[^/]+\\.ya?ml$",
+            "(^|\\/)action\\.ya?ml$"
+          ]
+        },
+        "gitlabci": {
+          "fileMatch": [
+            "\\.gitlab-ci\\.yml$"
+          ]
+        },
+        "gitlabci-include": {
+          "fileMatch": [
+            "\\.gitlab-ci\\.yml$"
+          ]
+        },
+        "gomod": {
+          "fileMatch": [
+            "(^|/)go\\.mod$"
+          ]
+        },
+        "gradle": {
+          "fileMatch": [
+            "\\.gradle(\\.kts)?$",
+            "(^|\\/)gradle\\.properties$",
+            "(^|\\/)gradle\\/.+\\.toml$",
+            "\\.versions\\.toml$"
+          ],
+          "timeout": 600,
+          "versioning": "gradle"
+        },
+        "gradle-wrapper": {
+          "fileMatch": [
+            "(^|/)gradle/wrapper/gradle-wrapper\\.properties$"
+          ],
+          "versioning": "gradle"
+        },
+        "helm-requirements": {
+          "registryAliases": {
+            "stable": "https://charts.helm.sh/stable"
+          },
+          "commitMessageTopic": "helm chart {{depName}}",
+          "fileMatch": [
+            "(^|/)requirements\\.yaml$"
+          ]
+        },
+        "helm-values": {
+          "commitMessageTopic": "helm values {{depName}}",
+          "fileMatch": [
+            "(^|/)values\\.yaml$"
+          ],
+          "pinDigests": false
+        },
+        "helmfile": {
+          "registryAliases": {
+            "stable": "https://charts.helm.sh/stable"
+          },
+          "commitMessageTopic": "helm chart {{depName}}",
+          "fileMatch": [
+            "(^|/)helmfile\\.yaml$"
+          ]
+        },
+        "helmsman": {
+          "fileMatch": []
+        },
+        "helmv3": {
+          "registryAliases": {
+            "stable": "https://charts.helm.sh/stable"
+          },
+          "commitMessageTopic": "helm chart {{depName}}",
+          "fileMatch": [
+            "(^|/)Chart\\.yaml$"
+          ]
+        },
+        "hermit": {
+          "fileMatch": [
+            "(^|/)bin/hermit$"
+          ],
+          "excludeCommitPaths": [
+            "**/bin/hermit"
+          ],
+          "versioning": "hermit"
+        },
+        "homebrew": {
+          "commitMessageTopic": "Homebrew Formula {{depName}}",
+          "fileMatch": [
+            "^Formula/[^/]+[.]rb$"
+          ]
+        },
+        "html": {
+          "fileMatch": [
+            "\\.html?$"
+          ],
+          "versioning": "semver",
+          "digest": {
+            "enabled": false
+          },
+          "pinDigests": false
+        },
+        "jenkins": {
+          "fileMatch": [
+            "(^|/)plugins\\.(txt|ya?ml)$"
+          ]
+        },
+        "jsonnet-bundler": {
+          "fileMatch": [
+            "(^|/)jsonnetfile\\.json$"
+          ],
+          "datasource": "git-tags"
+        },
+        "kotlin-script": {
+          "fileMatch": [
+            "^.+\\.main\\.kts$"
+          ]
+        },
+        "kubernetes": {
+          "fileMatch": []
+        },
+        "kustomize": {
+          "fileMatch": [
+            "(^|/)kustomization\\.ya?ml$"
+          ],
+          "pinDigests": false
+        },
+        "leiningen": {
+          "fileMatch": [
+            "(^|/)project\\.clj$"
+          ],
+          "versioning": "maven"
+        },
+        "maven": {
+          "fileMatch": [
+            "(^|/|\\.)pom\\.xml$",
+            "^(((\\.mvn)|(\\.m2))/)?settings\\.xml$"
+          ],
+          "versioning": "maven"
+        },
+        "meteor": {
+          "fileMatch": [
+            "(^|/)package\\.js$"
+          ]
+        },
+        "mint": {
+          "fileMatch": [
+            "(^|\\/)Mintfile$"
+          ]
+        },
+        "mix": {
+          "fileMatch": [
+            "(^|/)mix\\.exs$"
+          ],
+          "versioning": "hex"
+        },
+        "nix": {
+          "fileMatch": [
+            "(^|\\/)flake\\.nix$"
+          ],
+          "commitMessageTopic": "nixpkgs",
+          "commitMessageExtra": "to {{newValue}}",
+          "enabled": false
+        },
+        "nodenv": {
+          "fileMatch": [
+            "(^|/)\\.node-version$"
+          ],
+          "versioning": "node"
+        },
+        "npm": {
+          "fileMatch": [
+            "(^|/)package\\.json$"
+          ],
+          "rollbackPrs": true,
+          "versioning": "npm",
+          "digest": {
+            "prBodyDefinitions": {
+              "Change": "{{#if displayFrom}}`{{{displayFrom}}}` -> {{else}}{{#if currentValue}}`{{{currentValue}}}` -> {{/if}}{{/if}}{{#if displayTo}}`{{{displayTo}}}`{{else}}`{{{newValue}}}`{{/if}}"
+            }
+          },
+          "prBodyDefinitions": {
+            "Change": "[{{#if displayFrom}}`{{{displayFrom}}}` -> {{else}}{{#if currentValue}}`{{{currentValue}}}` -> {{/if}}{{/if}}{{#if displayTo}}`{{{displayTo}}}`{{else}}`{{{newValue}}}`{{/if}}]({{#if depName}}https://renovatebot.com/diffs/npm/{{replace '/' '%2f' depName}}/{{{currentVersion}}}/{{{newVersion}}}{{/if}})"
+          }
+        },
+        "nuget": {
+          "fileMatch": [
+            "\\.(?:cs|fs|vb)proj$",
+            "\\.(?:props|targets)$",
+            "(^|\\/)dotnet-tools\\.json$",
+            "(^|\\/)global\\.json$"
+          ]
+        },
+        "nvm": {
+          "fileMatch": [
+            "(^|/)\\.nvmrc$"
+          ],
+          "versioning": "node",
+          "pinDigests": false
+        },
+        "pip-compile": {
+          "fileMatch": [],
+          "lockFileMaintenance": {
+            "enabled": true,
+            "branchTopic": "pip-compile-refresh",
+            "commitMessageAction": "Refresh pip-compile outputs"
+          }
+        },
+        "pip_requirements": {
+          "fileMatch": [
+            "(^|/)([\\w-]*)requirements\\.(txt|pip)$"
+          ]
+        },
+        "pip_setup": {
+          "fileMatch": [
+            "(^|/)setup\\.py$"
+          ]
+        },
+        "pipenv": {
+          "fileMatch": [
+            "(^|/)Pipfile$"
+          ]
+        },
+        "poetry": {
+          "fileMatch": [
+            "(^|/)pyproject\\.toml$"
+          ]
+        },
+        "pre-commit": {
+          "commitMessageTopic": "pre-commit hook {{depName}}",
+          "enabled": false,
+          "fileMatch": [
+            "(^|/)\\.pre-commit-config\\.yaml$"
+          ],
+          "prBodyNotes": [
+            "Note: The `pre-commit` manager in Renovate is not supported by the `pre-commit` maintainers or community. Please do not report any problems there, instead [create a Discussion in the Renovate repository](https://github.com/renovatebot/renovate/discussions/new) if you have any questions."
+          ]
+        },
+        "pub": {
+          "fileMatch": [
+            "(^|/)pubspec\\.ya?ml$"
+          ],
+          "versioning": "npm"
+        },
+        "puppet": {
+          "fileMatch": [
+            "(^|\\/)Puppetfile$"
+          ]
+        },
+        "pyenv": {
+          "fileMatch": [
+            "(^|/)\\.python-version$"
+          ],
+          "versioning": "docker"
+        },
+        "regex": {
+          "pinDigests": false
+        },
+        "ruby-version": {
+          "fileMatch": [
+            "(^|/)\\.ruby-version$"
+          ],
+          "versioning": "ruby"
+        },
+        "sbt": {
+          "fileMatch": [
+            "\\.sbt$",
+            "project/[^/]*.scala$"
+          ],
+          "versioning": "ivy"
+        },
+        "setup-cfg": {
+          "fileMatch": [
+            "(^|/)setup\\.cfg$"
+          ],
+          "versioning": "pep440"
+        },
+        "swift": {
+          "fileMatch": [
+            "(^|/)Package\\.swift"
+          ],
+          "versioning": "swift",
+          "rangeStrategy": "bump",
+          "pinDigests": false
+        },
+        "tekton": {
+          "fileMatch": []
+        },
+        "terraform": {
+          "commitMessageTopic": "Terraform {{depName}}",
+          "fileMatch": [
+            "\\.tf$"
+          ],
+          "pinDigests": false
+        },
+        "terraform-version": {
+          "fileMatch": [
+            "(^|/)\\.terraform-version$"
+          ],
+          "versioning": "hashicorp",
+          "extractVersion": "^v(?<version>.*)$"
+        },
+        "terragrunt": {
+          "commitMessageTopic": "Terragrunt dependency {{depName}}",
+          "fileMatch": [
+            "(^|/)terragrunt\\.hcl$"
+          ],
+          "versioning": "hashicorp"
+        },
+        "terragrunt-version": {
+          "fileMatch": [
+            "(^|/)\\.terragrunt-version$"
+          ],
+          "versioning": "hashicorp",
+          "extractVersion": "^v(?<version>.+)$"
+        },
+        "tflint-plugin": {
+          "commitMessageTopic": "TFLint plugin {{depName}}",
+          "fileMatch": [
+            "\\.tflint\\.hcl$"
+          ],
+          "extractVersion": "^v(?<version>.*)$"
+        },
+        "travis": {
+          "fileMatch": [
+            "^\\.travis\\.yml$"
+          ],
+          "major": {
+            "enabled": false
+          },
+          "versioning": "node"
+        },
+        "velaci": {
+          "fileMatch": [
+            "(^|/)\\.vela\\.ya?ml$"
+          ]
+        },
+        "woodpecker": {
+          "fileMatch": [
+            "(^|\\/)\\.woodpecker[^/]*\\.ya?ml$"
+          ]
+        },
+        "renovateUsername": "korosuke613",
+        "repository": "korosuke613/renovate-playground",
+        "errors": [],
+        "warnings": [],
+        "branchList": [],
+        "defaultBranch": "main",
+        "isFork": false,
+        "repoFingerprint": "729779f22b7ab14e1c2abc4dfa900fd2b694790bbf0ab5722ab0f748b0773d0b69b336a0589c77348858015965d4e3040d17b16e36c5f186ba31075055903e6a",
+        "baseBranch": "main",
+        "repoIsOnboarded": true,
+        "repositories": [
+          "korosuke613/renovate-playground"
+        ],
+        "dryRun": "full",
+        "renovateJsonPresent": true
+      }
+    }
+  ],
+  "DependencyExtraction": [
+    {
+      "baseBranch": "main",
+      "stats": {
+        "managers": {
+          "asdf": {
+            "fileCount": 1,
+            "depCount": 3
+          },
+          "gomod": {
+            "fileCount": 1,
+            "depCount": 2
+          },
+          "regex": {
+            "fileCount": 2,
+            "depCount": 2
+          }
+        },
+        "total": {
+          "fileCount": 4,
+          "depCount": 7
+        }
+      }
+    }
+  ],
+  "packageFiles with updates": [
+    {
+      "baseBranch": "main",
+      "orderedConfig": {
+        "asdf": {
+          ".tool-versions": {
+            "goreleaser": {
+              "depName": "goreleaser",
+              "skipReason": "unsupported-datasource",
+              "depIndex": 0,
+              "updates": []
+            },
+            "golang": {
+              "currentValue": "1.18.1",
+              "depName": "golang",
+              "datasource": "github-tags",
+              "packageName": "golang/go",
+              "versioning": "semver",
+              "extractVersion": "^go(?<version>\\S+)",
+              "depIndex": 1,
+              "updates": [
+                {
+                  "bucket": "non-major",
+                  "newVersion": "1.19.4",
+                  "newValue": "1.19.4",
+                  "releaseTimestamp": "2022-12-06T19:30:53.000Z",
+                  "newMajor": 1,
+                  "newMinor": 19,
+                  "updateType": "minor",
+                  "branchName": "renovate/all"
+                }
+              ],
+              "warnings": [],
+              "sourceUrl": "https://github.com/golang/go",
+              "currentVersion": "1.18.1",
+              "isSingleVersion": true,
+              "fixedVersion": "1.18.1"
+            },
+            "golangci-lint": {
+              "depName": "golangci-lint",
+              "skipReason": "unsupported-datasource",
+              "depIndex": 2,
+              "updates": []
+            }
+          }
+        },
+        "gomod": {
+          "go.mod": {
+            "go": {
+              "managerData": {
+                "lineNumber": 2
+              },
+              "depName": "go",
+              "depType": "golang",
+              "currentValue": "1.18",
+              "datasource": "golang-version",
+              "versioning": "npm",
+              "rangeStrategy": "replace",
+              "depIndex": 0,
+              "updates": [
+                {
+                  "bucket": "non-major",
+                  "newVersion": "1.19.4",
+                  "newValue": "1.19",
+                  "releaseTimestamp": "2022-12-06T00:00:00.000Z",
+                  "newMajor": 1,
+                  "newMinor": 19,
+                  "updateType": "minor",
+                  "isRange": true,
+                  "branchName": "renovate/golang-version"
+                }
+              ],
+              "warnings": [],
+              "sourceUrl": "https://github.com/golang/go",
+              "homepage": "https://go.dev/",
+              "currentVersion": "1.18.9",
+              "isSingleVersion": false
+            },
+            "go.uber.org/zap": {
+              "managerData": {
+                "lineNumber": 4
+              },
+              "depName": "go.uber.org/zap",
+              "depType": "require",
+              "currentValue": "v1.20.0",
+              "datasource": "go",
+              "depIndex": 1,
+              "updates": [
+                {
+                  "bucket": "non-major",
+                  "newVersion": "v1.24.0",
+                  "newValue": "v1.24.0",
+                  "releaseTimestamp": "2022-11-30T18:30:33.000Z",
+                  "newMajor": 1,
+                  "newMinor": 24,
+                  "updateType": "minor",
+                  "branchName": "renovate/all"
+                }
+              ],
+              "warnings": [],
+              "versioning": "semver",
+              "sourceUrl": "https://github.com/uber-go/zap",
+              "currentVersion": "v1.20.0",
+              "isSingleVersion": true,
+              "fixedVersion": "v1.20.0"
+            }
+          }
+        },
+        "regex": {
+          ".tool-versions": {
+            "golangci/golangci-lint": {
+              "depName": "golangci/golangci-lint",
+              "currentValue": "1.49.0",
+              "datasource": "github-releases",
+              "extractVersion": "^v(?<version>.*)$",
+              "replaceString": "golangci-lint 1.49.0",
+              "depIndex": 0,
+              "updates": [
+                {
+                  "bucket": "non-major",
+                  "newVersion": "1.50.1",
+                  "newValue": "1.50.1",
+                  "releaseTimestamp": "2022-10-22T11:11:45.000Z",
+                  "newMajor": 1,
+                  "newMinor": 50,
+                  "updateType": "minor",
+                  "branchName": "renovate/golangci-lint"
+                }
+              ],
+              "warnings": [],
+              "versioning": "semver",
+              "sourceUrl": "https://github.com/golangci/golangci-lint",
+              "currentVersion": "1.49.0",
+              "isSingleVersion": true,
+              "fixedVersion": "1.49.0"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

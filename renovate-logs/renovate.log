@@ -1,0 +1,914 @@
+DEBUG: Using RE2 as regex engine
+DEBUG: Parsing configs
+DEBUG: Checking for config file in /Users/korosuke613/ghq/github.com/korosuke613/renovate-playground/renovate.json
+ WARN: cli config dryRun property has been changed to full
+DEBUG: File config
+       "config": {
+         "extends": [
+           ":label(renovate)",
+           ":prConcurrentLimit10",
+           ":timezone(Asia/Tokyo)",
+           ":enableVulnerabilityAlertsWithLabel(security)",
+           ":semanticCommitTypeAll(chore)",
+           "schedule:monthly"
+         ],
+         "dependencyDashboard": true,
+         "dependencyDashboardLabels": ["renovate"],
+         "postUpdateOptions": ["gomodTidy"],
+         "groupName": "all",
+         "regexManagers": [
+           {
+             "fileMatch": ["^.tool-versions$"],
+             "matchStrings": ["golangci-lint (?<currentValue>\\d+\\.\\d+\\.\\d+)"],
+             "datasourceTemplate": "github-releases",
+             "depNameTemplate": "golangci/golangci-lint",
+             "extractVersionTemplate": "^v(?<version>.*)$"
+           },
+           {
+             "fileMatch": ["^.tool-versions$"],
+             "matchStrings": ["goreleaser (?<currentValue>\\d+\\.\\d+\\.\\d+)"],
+             "datasourceTemplate": "github-releases",
+             "depNameTemplate": "goreleaser/goreleaser222",
+             "extractVersionTemplate": "^v(?<version>.*)$"
+           }
+         ],
+         "packageRules": [
+           {
+             "groupName": "golang-version",
+             "matchDatasources": ["golang-version"],
+             "matchManagers": ["gomod"]
+           },
+           {
+             "groupName": "golang-version",
+             "matchManagers": ["asdf"],
+             "matchPackageNames": ["golang"]
+           },
+           {
+             "groupName": "golangci-lint",
+             "matchManagers": ["regex"],
+             "matchPackageNames": ["golangci/golangci-lint"]
+           },
+           {
+             "groupName": "goreleaser",
+             "matchManagers": ["regex"],
+             "matchPackageNames": ["goreleaser/goreleaser"]
+           }
+         ]
+       }
+DEBUG: CLI config
+       "config": {
+         "repositories": ["korosuke613/renovate-playground"],
+         "dryRun": "full",
+         "schedule": [],
+         "token": "***********",
+         "useBaseBranchConfig": "merge"
+       }
+DEBUG: Env config
+       "config": {"hostRules": []}
+DEBUG: Combined config
+       "config": {
+         "extends": [
+           ":label(renovate)",
+           ":prConcurrentLimit10",
+           ":timezone(Asia/Tokyo)",
+           ":enableVulnerabilityAlertsWithLabel(security)",
+           ":semanticCommitTypeAll(chore)",
+           "schedule:monthly"
+         ],
+         "dependencyDashboard": true,
+         "dependencyDashboardLabels": ["renovate"],
+         "postUpdateOptions": ["gomodTidy"],
+         "groupName": "all",
+         "regexManagers": [
+           {
+             "fileMatch": ["^.tool-versions$"],
+             "matchStrings": ["golangci-lint (?<currentValue>\\d+\\.\\d+\\.\\d+)"],
+             "datasourceTemplate": "github-releases",
+             "depNameTemplate": "golangci/golangci-lint",
+             "extractVersionTemplate": "^v(?<version>.*)$"
+           },
+           {
+             "fileMatch": ["^.tool-versions$"],
+             "matchStrings": ["goreleaser (?<currentValue>\\d+\\.\\d+\\.\\d+)"],
+             "datasourceTemplate": "github-releases",
+             "depNameTemplate": "goreleaser/goreleaser222",
+             "extractVersionTemplate": "^v(?<version>.*)$"
+           }
+         ],
+         "packageRules": [
+           {
+             "groupName": "golang-version",
+             "matchDatasources": ["golang-version"],
+             "matchManagers": ["gomod"]
+           },
+           {
+             "groupName": "golang-version",
+             "matchManagers": ["asdf"],
+             "matchPackageNames": ["golang"]
+           },
+           {
+             "groupName": "golangci-lint",
+             "matchManagers": ["regex"],
+             "matchPackageNames": ["golangci/golangci-lint"]
+           },
+           {
+             "groupName": "goreleaser",
+             "matchManagers": ["regex"],
+             "matchPackageNames": ["goreleaser/goreleaser"]
+           }
+         ],
+         "hostRules": [],
+         "repositories": ["korosuke613/renovate-playground"],
+         "dryRun": "full",
+         "schedule": [],
+         "token": "***********",
+         "useBaseBranchConfig": "merge"
+       }
+DEBUG: Found valid git version: 2.38.1
+DEBUG: Using default github endpoint: https://api.github.com/
+DEBUG: GET https://api.github.com/user/emails = (code=ERR_NON_2XX_3XX_RESPONSE, statusCode=404 retryCount=0, duration=249)
+DEBUG: Cannot read user/emails endpoint on GitHub to retrieve gitAuthor
+DEBUG: Platform config
+       "platformConfig": {
+         "hostType": "github",
+         "endpoint": "https://api.github.com/",
+         "isGHApp": false,
+         "isGhe": false,
+         "userDetails": {"username": "korosuke613", "name": "Futa HIRAKOBA"},
+         "userEmail": null
+       },
+       "renovateUsername": "korosuke613"
+DEBUG: Adding token authentication for api.github.com to hostRules
+DEBUG: Using baseDir: /var/folders/gf/6048_drd30d9d173y3jd61980000gp/T/renovate
+DEBUG: Using cacheDir: /var/folders/gf/6048_drd30d9d173y3jd61980000gp/T/renovate/cache
+DEBUG: Using containerbaseDir: /var/folders/gf/6048_drd30d9d173y3jd61980000gp/T/renovate/cache/containerbase
+DEBUG: Initializing Renovate internal cache into /var/folders/gf/6048_drd30d9d173y3jd61980000gp/T/renovate/cache/renovate/renovate-cache-v1
+DEBUG: Commits limit = null
+DEBUG: Setting global hostRules
+DEBUG: Adding token authentication for api.github.com to hostRules
+DEBUG: validatePresets()
+DEBUG: Reinitializing hostRules for repo
+DEBUG: Clearing hostRules
+DEBUG: Adding token authentication for api.github.com to hostRules
+ INFO: Repository started (repository=korosuke613/renovate-playground)
+       "renovateVersion": "34.50.1"
+DEBUG: Using localDir: /var/folders/gf/6048_drd30d9d173y3jd61980000gp/T/renovate/repos/github/korosuke613/renovate-playground (repository=korosuke613/renovate-playground)
+DEBUG: PackageFiles.clear() - Package files deleted (repository=korosuke613/renovate-playground)
+DEBUG: initRepo("korosuke613/renovate-playground") (repository=korosuke613/renovate-playground)
+DEBUG: korosuke613/renovate-playground default branch = main (repository=korosuke613/renovate-playground)
+DEBUG: Using personal access token for git init (repository=korosuke613/renovate-playground)
+DEBUG: Resetting npmrc (repository=korosuke613/renovate-playground)
+DEBUG: detectSemanticCommits() (repository=korosuke613/renovate-playground)
+DEBUG: Initializing git repository into /var/folders/gf/6048_drd30d9d173y3jd61980000gp/T/renovate/repos/github/korosuke613/renovate-playground (repository=korosuke613/renovate-playground)
+DEBUG: Performing blobless clone (repository=korosuke613/renovate-playground)
+DEBUG: git clone completed (repository=korosuke613/renovate-playground)
+       "durationMs": 1795
+DEBUG: latest repository commit (repository=korosuke613/renovate-playground)
+       "latestCommit": {
+         "hash": "3783c59509b9bac6e232f46cfc70aca1a0602af6",
+         "date": "2022-12-09T14:00:50+09:00",
+         "message": "fix: groups",
+         "refs": "HEAD -> main, origin/main, origin/HEAD",
+         "body": "",
+         "author_name": "Futa HIRAKOBA",
+         "author_email": "korosuke613@users.noreply.github.com"
+       }
+DEBUG: getCommitMessages (repository=korosuke613/renovate-playground)
+DEBUG: Semantic commits detection: angular (repository=korosuke613/renovate-playground)
+DEBUG: angular semantic commits detected (repository=korosuke613/renovate-playground)
+DEBUG: checkOnboarding() (repository=korosuke613/renovate-playground)
+DEBUG: isOnboarded() (repository=korosuke613/renovate-playground)
+DEBUG: findFile(renovate.json) (repository=korosuke613/renovate-playground)
+DEBUG: Config file exists, fileName: renovate.json (repository=korosuke613/renovate-playground)
+DEBUG: Retrieving issueList (repository=korosuke613/renovate-playground)
+DEBUG: Retrieved 0 issues (repository=korosuke613/renovate-playground)
+DEBUG: Repo is onboarded (repository=korosuke613/renovate-playground)
+DEBUG: Found renovate.json config file (repository=korosuke613/renovate-playground)
+DEBUG: Repository config (repository=korosuke613/renovate-playground)
+       "fileName": "renovate.json",
+       "config": {
+         "extends": [
+           ":label(renovate)",
+           ":prConcurrentLimit10",
+           ":timezone(Asia/Tokyo)",
+           ":enableVulnerabilityAlertsWithLabel(security)",
+           ":semanticCommitTypeAll(chore)",
+           "schedule:monthly"
+         ],
+         "dependencyDashboard": true,
+         "dependencyDashboardLabels": ["renovate"],
+         "postUpdateOptions": ["gomodTidy"],
+         "groupName": "all",
+         "regexManagers": [
+           {
+             "fileMatch": ["^.tool-versions$"],
+             "matchStrings": ["golang (?<currentValue>\\d+\\.\\d+\\.\\d+)"],
+             "datasourceTemplate": "golang-version",
+             "depNameTemplate": "tool-versions/golang-version"
+           },
+           {
+             "fileMatch": ["^.tool-versions$"],
+             "matchStrings": ["golangci-lint (?<currentValue>\\d+\\.\\d+\\.\\d+)"],
+             "datasourceTemplate": "github-releases",
+             "depNameTemplate": "golangci/golangci-lint",
+             "extractVersionTemplate": "^v(?<version>.*)$"
+           }
+         ],
+         "packageRules": [
+           {
+             "groupName": "golang-version",
+             "matchDatasources": ["golang-version"],
+             "matchManagers": ["gomod"]
+           },
+           {
+             "groupName": "golang-version",
+             "matchManagers": ["regex"],
+             "matchPackageNames": ["tool-versions/golang-version"]
+           },
+           {
+             "groupName": "golangci-lint",
+             "matchManagers": ["regex"],
+             "matchPackageNames": ["golangci/golangci-lint"]
+           }
+         ]
+       }
+DEBUG: migrateAndValidate() (repository=korosuke613/renovate-playground)
+DEBUG: No config migration necessary (repository=korosuke613/renovate-playground)
+DEBUG: massaged config (repository=korosuke613/renovate-playground)
+       "config": {
+         "extends": [
+           ":label(renovate)",
+           ":prConcurrentLimit10",
+           ":timezone(Asia/Tokyo)",
+           ":enableVulnerabilityAlertsWithLabel(security)",
+           ":semanticCommitTypeAll(chore)",
+           "schedule:monthly",
+           ":label(renovate)",
+           ":prConcurrentLimit10",
+           ":timezone(Asia/Tokyo)",
+           ":enableVulnerabilityAlertsWithLabel(security)",
+           ":semanticCommitTypeAll(chore)",
+           "schedule:monthly"
+         ],
+         "dependencyDashboard": true,
+         "dependencyDashboardLabels": ["renovate"],
+         "postUpdateOptions": ["gomodTidy"],
+         "groupName": "all",
+         "regexManagers": [
+           {
+             "fileMatch": ["^.tool-versions$"],
+             "matchStrings": ["golang (?<currentValue>\\d+\\.\\d+\\.\\d+)"],
+             "datasourceTemplate": "golang-version",
+             "depNameTemplate": "tool-versions/golang-version"
+           },
+           {
+             "fileMatch": ["^.tool-versions$"],
+             "matchStrings": ["golangci-lint (?<currentValue>\\d+\\.\\d+\\.\\d+)"],
+             "datasourceTemplate": "github-releases",
+             "depNameTemplate": "golangci/golangci-lint",
+             "extractVersionTemplate": "^v(?<version>.*)$"
+           }
+         ],
+         "packageRules": [
+           {
+             "groupName": "golang-version",
+             "matchDatasources": ["golang-version"],
+             "matchManagers": ["gomod"]
+           },
+           {
+             "groupName": "golang-version",
+             "matchManagers": ["regex"],
+             "matchPackageNames": ["tool-versions/golang-version"]
+           },
+           {
+             "groupName": "golangci-lint",
+             "matchManagers": ["regex"],
+             "matchPackageNames": ["golangci/golangci-lint"]
+           }
+         ]
+       }
+DEBUG: migrated config (repository=korosuke613/renovate-playground)
+       "config": {
+         "extends": [
+           ":label(renovate)",
+           ":prConcurrentLimit10",
+           ":timezone(Asia/Tokyo)",
+           ":enableVulnerabilityAlertsWithLabel(security)",
+           ":semanticCommitTypeAll(chore)",
+           "schedule:monthly",
+           ":label(renovate)",
+           ":prConcurrentLimit10",
+           ":timezone(Asia/Tokyo)",
+           ":enableVulnerabilityAlertsWithLabel(security)",
+           ":semanticCommitTypeAll(chore)",
+           "schedule:monthly"
+         ],
+         "dependencyDashboard": true,
+         "dependencyDashboardLabels": ["renovate"],
+         "postUpdateOptions": ["gomodTidy"],
+         "groupName": "all",
+         "regexManagers": [
+           {
+             "fileMatch": ["^.tool-versions$"],
+             "matchStrings": ["golang (?<currentValue>\\d+\\.\\d+\\.\\d+)"],
+             "datasourceTemplate": "golang-version",
+             "depNameTemplate": "tool-versions/golang-version"
+           },
+           {
+             "fileMatch": ["^.tool-versions$"],
+             "matchStrings": ["golangci-lint (?<currentValue>\\d+\\.\\d+\\.\\d+)"],
+             "datasourceTemplate": "github-releases",
+             "depNameTemplate": "golangci/golangci-lint",
+             "extractVersionTemplate": "^v(?<version>.*)$"
+           }
+         ],
+         "packageRules": [
+           {
+             "groupName": "golang-version",
+             "matchDatasources": ["golang-version"],
+             "matchManagers": ["gomod"]
+           },
+           {
+             "groupName": "golang-version",
+             "matchManagers": ["regex"],
+             "matchPackageNames": ["tool-versions/golang-version"]
+           },
+           {
+             "groupName": "golangci-lint",
+             "matchManagers": ["regex"],
+             "matchPackageNames": ["golangci/golangci-lint"]
+           }
+         ]
+       }
+DEBUG: Found repo ignorePaths (repository=korosuke613/renovate-playground)
+       "ignorePaths": ["**/node_modules/**", "**/bower_components/**"]
+DEBUG: No vulnerability alerts found (repository=korosuke613/renovate-playground)
+DEBUG: No vulnerability alerts found (repository=korosuke613/renovate-playground)
+DEBUG: findIssue(Dependency Dashboard) (repository=korosuke613/renovate-playground)
+DEBUG: No baseBranches (repository=korosuke613/renovate-playground)
+DEBUG: extract() (repository=korosuke613/renovate-playground)
+DEBUG: Setting current branch to main (repository=korosuke613/renovate-playground)
+DEBUG: latest commit (repository=korosuke613/renovate-playground)
+       "branchName": "main",
+       "latestCommitDate": "2022-12-09T14:00:50+09:00"
+DEBUG: Using file match: (^|/)tasks/[^/]+\.ya?ml$ for manager ansible (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|/)requirements\.ya?ml$ for manager ansible-galaxy (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|/)galaxy\.ya?ml$ for manager ansible-galaxy (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|/)\.tool-versions$ for manager asdf (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: azure.*pipelines?.*\.ya?ml$ for manager azure-pipelines (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|/)batect(-bundle)?\.yml$ for manager batect (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|/)batect$ for manager batect-wrapper (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|/)WORKSPACE(|\.bazel)$ for manager bazel (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: \.bzl$ for manager bazel (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|\/)\.bazelversion$ for manager bazelisk (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|/)\.?bitbucket-pipelines\.ya?ml$ for manager bitbucket-pipelines (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: buildkite\.ya?ml for manager buildkite (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: \.buildkite/.+\.ya?ml$ for manager buildkite (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|/)Gemfile$ for manager bundler (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: \.cake$ for manager cake (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|/)Cargo\.toml$ for manager cargo (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|/)\.circleci/config\.yml$ for manager circleci (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|/)cloudbuild\.ya?ml for manager cloudbuild (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|/)Podfile$ for manager cocoapods (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|/)([\w-]*)composer\.json$ for manager composer (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|/)conanfile\.(txt|py)$ for manager conan (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|/)(?:deps|bb)\.edn$ for manager deps-edn (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|/)(?:docker-)?compose[^/]*\.ya?ml$ for manager docker-compose (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|/|\.)Dockerfile$ for manager dockerfile (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|/)Dockerfile[^/]*$ for manager dockerfile (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|/)\.drone\.yml$ for manager droneci (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|/)fleet\.ya?ml for manager fleet (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|\/)flux-system\/(?:.+\/)?gotk-components\.yaml$ for manager flux (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|\/)\.fvm\/fvm_config\.json$ for manager fvm (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|/)\.gitmodules$ for manager git-submodules (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: ^(workflow-templates|\.github\/workflows)\/[^/]+\.ya?ml$ for manager github-actions (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|\/)action\.ya?ml$ for manager github-actions (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: \.gitlab-ci\.yml$ for manager gitlabci (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: \.gitlab-ci\.yml$ for manager gitlabci-include (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|/)go\.mod$ for manager gomod (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: \.gradle(\.kts)?$ for manager gradle (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|\/)gradle\.properties$ for manager gradle (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|\/)gradle\/.+\.toml$ for manager gradle (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: \.versions\.toml$ for manager gradle (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|/)gradle/wrapper/gradle-wrapper\.properties$ for manager gradle-wrapper (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|/)requirements\.yaml$ for manager helm-requirements (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|/)values\.yaml$ for manager helm-values (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|/)helmfile\.yaml$ for manager helmfile (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|/)Chart\.yaml$ for manager helmv3 (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|/)bin/hermit$ for manager hermit (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: ^Formula/[^/]+[.]rb$ for manager homebrew (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: \.html?$ for manager html (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|/)plugins\.(txt|ya?ml)$ for manager jenkins (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|/)jsonnetfile\.json$ for manager jsonnet-bundler (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: ^.+\.main\.kts$ for manager kotlin-script (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|/)kustomization\.ya?ml$ for manager kustomize (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|/)project\.clj$ for manager leiningen (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|/|\.)pom\.xml$ for manager maven (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: ^(((\.mvn)|(\.m2))/)?settings\.xml$ for manager maven (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|/)package\.js$ for manager meteor (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|\/)Mintfile$ for manager mint (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|/)mix\.exs$ for manager mix (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|\/)flake\.nix$ for manager nix (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|/)\.node-version$ for manager nodenv (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|/)package\.json$ for manager npm (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: \.(?:cs|fs|vb)proj$ for manager nuget (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: \.(?:props|targets)$ for manager nuget (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|\/)dotnet-tools\.json$ for manager nuget (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|\/)global\.json$ for manager nuget (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|/)\.nvmrc$ for manager nvm (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|/)([\w-]*)requirements\.(txt|pip)$ for manager pip_requirements (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|/)setup\.py$ for manager pip_setup (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|/)Pipfile$ for manager pipenv (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|/)pyproject\.toml$ for manager poetry (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|/)\.pre-commit-config\.yaml$ for manager pre-commit (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|/)pubspec\.ya?ml$ for manager pub (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|\/)Puppetfile$ for manager puppet (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|/)\.python-version$ for manager pyenv (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: ^.tool-versions$ for manager regex (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: ^.tool-versions$ for manager regex (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: ^.tool-versions$ for manager regex (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: ^.tool-versions$ for manager regex (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|/)\.ruby-version$ for manager ruby-version (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: \.sbt$ for manager sbt (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: project/[^/]*.scala$ for manager sbt (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|/)setup\.cfg$ for manager setup-cfg (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|/)Package\.swift for manager swift (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: \.tf$ for manager terraform (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|/)\.terraform-version$ for manager terraform-version (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|/)terragrunt\.hcl$ for manager terragrunt (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|/)\.terragrunt-version$ for manager terragrunt-version (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: \.tflint\.hcl$ for manager tflint-plugin (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: ^\.travis\.yml$ for manager travis (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|/)\.vela\.ya?ml$ for manager velaci (repository=korosuke613/renovate-playground)
+DEBUG: Using file match: (^|\/)\.woodpecker[^/]*\.ya?ml$ for manager woodpecker (repository=korosuke613/renovate-playground)
+DEBUG: Matched 1 file(s) for manager asdf: .tool-versions (repository=korosuke613/renovate-playground)
+DEBUG: Matched 1 file(s) for manager gomod: go.mod (repository=korosuke613/renovate-playground)
+DEBUG: Matched 1 file(s) for manager regex: .tool-versions (repository=korosuke613/renovate-playground)
+DEBUG: Matched 1 file(s) for manager regex: .tool-versions (repository=korosuke613/renovate-playground)
+DEBUG: Matched 1 file(s) for manager regex: .tool-versions (repository=korosuke613/renovate-playground)
+DEBUG: Matched 1 file(s) for manager regex: .tool-versions (repository=korosuke613/renovate-playground)
+DEBUG: Found asdf package files (repository=korosuke613/renovate-playground)
+DEBUG: Found gomod package files (repository=korosuke613/renovate-playground)
+DEBUG: Found regex package files (repository=korosuke613/renovate-playground)
+DEBUG: Found regex package files (repository=korosuke613/renovate-playground)
+DEBUG: Found regex package files (repository=korosuke613/renovate-playground)
+DEBUG: Found regex package files (repository=korosuke613/renovate-playground)
+DEBUG: Found 6 package file(s) (repository=korosuke613/renovate-playground)
+ INFO: Dependency extraction complete (repository=korosuke613/renovate-playground, baseBranch=main)
+       "stats": {
+         "managers": {
+           "asdf": {"fileCount": 1, "depCount": 3},
+           "gomod": {"fileCount": 1, "depCount": 2},
+           "regex": {"fileCount": 4, "depCount": 4}
+         },
+         "total": {"fileCount": 6, "depCount": 9}
+       }
+DEBUG: GET https://api.github.com/repos/goreleaser/goreleaser222/releases?per_page=100 = (code=ERR_NON_2XX_3XX_RESPONSE, statusCode=404 retryCount=0, duration=289) (repository=korosuke613/renovate-playground)
+DEBUG: Datasource 404 (repository=korosuke613/renovate-playground)
+       "datasource": "github-releases",
+       "packageName": "goreleaser/goreleaser222",
+       "url": "https://api.github.com/repos/goreleaser/goreleaser222/releases?per_page=100"
+DEBUG: Failed to look up github-releases dependency goreleaser/goreleaser222 (repository=korosuke613/renovate-playground, packageFile=.tool-versions, dependency=goreleaser/goreleaser222)
+DEBUG: PackageFiles.add() - Package file saved for base branch (repository=korosuke613/renovate-playground, baseBranch=main)
+DEBUG: Package releases lookups complete (repository=korosuke613/renovate-playground, baseBranch=main)
+DEBUG: branchifyUpgrades (repository=korosuke613/renovate-playground)
+DEBUG: Using group branchName template (repository=korosuke613/renovate-playground)
+DEBUG: Dependency golang is part of group golang-version (repository=korosuke613/renovate-playground)
+DEBUG: Using group branchName template (repository=korosuke613/renovate-playground)
+DEBUG: Dependency go is part of group golang-version (repository=korosuke613/renovate-playground)
+DEBUG: Using group branchName template (repository=korosuke613/renovate-playground)
+DEBUG: Dependency go.uber.org/zap is part of group all (repository=korosuke613/renovate-playground)
+DEBUG: Using group branchName template (repository=korosuke613/renovate-playground)
+DEBUG: Dependency golangci/golangci-lint is part of group golangci-lint (repository=korosuke613/renovate-playground)
+DEBUG: Using group branchName template (repository=korosuke613/renovate-playground)
+DEBUG: Dependency tool-versions/golang-version is part of group golang-version (repository=korosuke613/renovate-playground)
+DEBUG: Using group branchName template (repository=korosuke613/renovate-playground)
+DEBUG: Dependency golangci/golangci-lint is part of group golangci-lint (repository=korosuke613/renovate-playground)
+DEBUG: 6 flattened updates found: golang, go, go.uber.org/zap, golangci/golangci-lint, tool-versions/golang-version, golangci/golangci-lint (repository=korosuke613/renovate-playground)
+DEBUG: Returning 3 branch(es) (repository=korosuke613/renovate-playground)
+DEBUG: config.repoIsOnboarded=true (repository=korosuke613/renovate-playground)
+DEBUG: packageFiles with updates (repository=korosuke613/renovate-playground, baseBranch=main)
+       "config": {
+         "asdf": [
+           {
+             "packageFile": ".tool-versions",
+             "deps": [
+               {
+                 "depName": "goreleaser",
+                 "skipReason": "unsupported-datasource",
+                 "depIndex": 0,
+                 "updates": []
+               },
+               {
+                 "currentValue": "1.18.1",
+                 "depName": "golang",
+                 "datasource": "github-tags",
+                 "packageName": "golang/go",
+                 "versioning": "semver",
+                 "extractVersion": "^go(?<version>\\S+)",
+                 "depIndex": 1,
+                 "updates": [
+                   {
+                     "bucket": "non-major",
+                     "newVersion": "1.19.4",
+                     "newValue": "1.19.4",
+                     "releaseTimestamp": "2022-12-06T19:30:53.000Z",
+                     "newMajor": 1,
+                     "newMinor": 19,
+                     "updateType": "minor",
+                     "branchName": "renovate/golang-version"
+                   }
+                 ],
+                 "warnings": [],
+                 "sourceUrl": "https://github.com/golang/go",
+                 "currentVersion": "1.18.1",
+                 "isSingleVersion": true,
+                 "fixedVersion": "1.18.1"
+               },
+               {
+                 "depName": "golangci-lint",
+                 "skipReason": "unsupported-datasource",
+                 "depIndex": 2,
+                 "updates": []
+               }
+             ]
+           }
+         ],
+         "gomod": [
+           {
+             "packageFile": "go.mod",
+             "deps": [
+               {
+                 "managerData": {"lineNumber": 2},
+                 "depName": "go",
+                 "depType": "golang",
+                 "currentValue": "1.18",
+                 "datasource": "golang-version",
+                 "versioning": "npm",
+                 "rangeStrategy": "replace",
+                 "depIndex": 0,
+                 "updates": [
+                   {
+                     "bucket": "non-major",
+                     "newVersion": "1.19.4",
+                     "newValue": "1.19",
+                     "releaseTimestamp": "2022-12-06T00:00:00.000Z",
+                     "newMajor": 1,
+                     "newMinor": 19,
+                     "updateType": "minor",
+                     "isRange": true,
+                     "branchName": "renovate/golang-version"
+                   }
+                 ],
+                 "warnings": [],
+                 "sourceUrl": "https://github.com/golang/go",
+                 "homepage": "https://go.dev/",
+                 "currentVersion": "1.18.9",
+                 "isSingleVersion": false
+               },
+               {
+                 "managerData": {"lineNumber": 4},
+                 "depName": "go.uber.org/zap",
+                 "depType": "require",
+                 "currentValue": "v1.20.0",
+                 "datasource": "go",
+                 "depIndex": 1,
+                 "updates": [
+                   {
+                     "bucket": "non-major",
+                     "newVersion": "v1.24.0",
+                     "newValue": "v1.24.0",
+                     "releaseTimestamp": "2022-11-30T18:30:33.000Z",
+                     "newMajor": 1,
+                     "newMinor": 24,
+                     "updateType": "minor",
+                     "branchName": "renovate/all"
+                   }
+                 ],
+                 "warnings": [],
+                 "versioning": "semver",
+                 "sourceUrl": "https://github.com/uber-go/zap",
+                 "currentVersion": "v1.20.0",
+                 "isSingleVersion": true,
+                 "fixedVersion": "v1.20.0"
+               }
+             ]
+           }
+         ],
+         "regex": [
+           {
+             "packageFile": ".tool-versions",
+             "deps": [
+               {
+                 "depName": "golangci/golangci-lint",
+                 "currentValue": "1.49.0",
+                 "datasource": "github-releases",
+                 "extractVersion": "^v(?<version>.*)$",
+                 "replaceString": "golangci-lint 1.49.0",
+                 "depIndex": 0,
+                 "updates": [
+                   {
+                     "bucket": "non-major",
+                     "newVersion": "1.50.1",
+                     "newValue": "1.50.1",
+                     "releaseTimestamp": "2022-10-22T11:11:45.000Z",
+                     "newMajor": 1,
+                     "newMinor": 50,
+                     "updateType": "minor",
+                     "branchName": "renovate/golangci-lint"
+                   }
+                 ],
+                 "warnings": [],
+                 "versioning": "semver",
+                 "sourceUrl": "https://github.com/golangci/golangci-lint",
+                 "currentVersion": "1.49.0",
+                 "isSingleVersion": true,
+                 "fixedVersion": "1.49.0"
+               }
+             ],
+             "matchStrings": ["golangci-lint (?<currentValue>\\d+\\.\\d+\\.\\d+)"],
+             "depNameTemplate": "golangci/golangci-lint",
+             "datasourceTemplate": "github-releases",
+             "extractVersionTemplate": "^v(?<version>.*)$"
+           },
+           {
+             "packageFile": ".tool-versions",
+             "deps": [
+               {
+                 "depName": "goreleaser/goreleaser222",
+                 "currentValue": "0.183.0",
+                 "datasource": "github-releases",
+                 "extractVersion": "^v(?<version>.*)$",
+                 "replaceString": "goreleaser 0.183.0",
+                 "depIndex": 0,
+                 "updates": [],
+                 "warnings": [
+                   {
+                     "topic": "goreleaser/goreleaser222",
+                     "message": "Failed to look up github-releases dependency goreleaser/goreleaser222"
+                   }
+                 ],
+                 "versioning": "semver"
+               }
+             ],
+             "matchStrings": ["goreleaser (?<currentValue>\\d+\\.\\d+\\.\\d+)"],
+             "depNameTemplate": "goreleaser/goreleaser222",
+             "datasourceTemplate": "github-releases",
+             "extractVersionTemplate": "^v(?<version>.*)$"
+           },
+           {
+             "packageFile": ".tool-versions",
+             "deps": [
+               {
+                 "depName": "tool-versions/golang-version",
+                 "currentValue": "1.18.1",
+                 "datasource": "golang-version",
+                 "replaceString": "golang 1.18.1",
+                 "depIndex": 0,
+                 "updates": [
+                   {
+                     "bucket": "non-major",
+                     "newVersion": "1.19.4",
+                     "newValue": "1.19.4",
+                     "releaseTimestamp": "2022-12-06T00:00:00.000Z",
+                     "newMajor": 1,
+                     "newMinor": 19,
+                     "updateType": "minor",
+                     "branchName": "renovate/golang-version"
+                   }
+                 ],
+                 "warnings": [],
+                 "versioning": "semver",
+                 "sourceUrl": "https://github.com/golang/go",
+                 "homepage": "https://go.dev/",
+                 "currentVersion": "1.18.1",
+                 "isSingleVersion": true,
+                 "fixedVersion": "1.18.1"
+               }
+             ],
+             "matchStrings": ["golang (?<currentValue>\\d+\\.\\d+\\.\\d+)"],
+             "depNameTemplate": "tool-versions/golang-version",
+             "datasourceTemplate": "golang-version"
+           },
+           {
+             "packageFile": ".tool-versions",
+             "deps": [
+               {
+                 "depName": "golangci/golangci-lint",
+                 "currentValue": "1.49.0",
+                 "datasource": "github-releases",
+                 "extractVersion": "^v(?<version>.*)$",
+                 "replaceString": "golangci-lint 1.49.0",
+                 "depIndex": 0,
+                 "updates": [
+                   {
+                     "bucket": "non-major",
+                     "newVersion": "1.50.1",
+                     "newValue": "1.50.1",
+                     "releaseTimestamp": "2022-10-22T11:11:45.000Z",
+                     "newMajor": 1,
+                     "newMinor": 50,
+                     "updateType": "minor",
+                     "branchName": "renovate/golangci-lint"
+                   }
+                 ],
+                 "warnings": [],
+                 "versioning": "semver",
+                 "sourceUrl": "https://github.com/golangci/golangci-lint",
+                 "currentVersion": "1.49.0",
+                 "isSingleVersion": true,
+                 "fixedVersion": "1.49.0"
+               }
+             ],
+             "matchStrings": ["golangci-lint (?<currentValue>\\d+\\.\\d+\\.\\d+)"],
+             "depNameTemplate": "golangci/golangci-lint",
+             "datasourceTemplate": "github-releases",
+             "extractVersionTemplate": "^v(?<version>.*)$"
+           }
+         ]
+       }
+DEBUG: processRepo() (repository=korosuke613/renovate-playground)
+DEBUG: Processing 3 branches: renovate/all, renovate/golang-version, renovate/golangci-lint (repository=korosuke613/renovate-playground)
+DEBUG: Calculating prConcurrentLimit (10) (repository=korosuke613/renovate-playground)
+DEBUG: getBranchPr(renovate/golangci-lint) (repository=korosuke613/renovate-playground)
+DEBUG: findPr(renovate/golangci-lint, undefined, open) (repository=korosuke613/renovate-playground)
+DEBUG: getPrList success (repository=korosuke613/renovate-playground)
+       "pullsTotal": 2,
+       "requestsTotal": 1,
+       "apiQuotaAffected": true
+DEBUG: findPr(renovate/golangci-lint, undefined, closed) (repository=korosuke613/renovate-playground)
+DEBUG: getBranchPr(renovate/golang-version) (repository=korosuke613/renovate-playground)
+DEBUG: findPr(renovate/golang-version, undefined, open) (repository=korosuke613/renovate-playground)
+DEBUG: findPr(renovate/golang-version, undefined, closed) (repository=korosuke613/renovate-playground)
+DEBUG: getBranchPr(renovate/all) (repository=korosuke613/renovate-playground)
+DEBUG: findPr(renovate/all, undefined, open) (repository=korosuke613/renovate-playground)
+DEBUG: findPr(renovate/all, undefined, closed) (repository=korosuke613/renovate-playground)
+DEBUG: 0 PRs are currently open (repository=korosuke613/renovate-playground)
+DEBUG: PR concurrent limit remaining: 10 (repository=korosuke613/renovate-playground)
+DEBUG: Calculated maximum PRs remaining this run: 10 (repository=korosuke613/renovate-playground)
+DEBUG: PullRequests limit = 10 (repository=korosuke613/renovate-playground)
+DEBUG: Calculating branchConcurrentLimit (10) (repository=korosuke613/renovate-playground)
+DEBUG: 3 already existing branches found: renovate/golangci-lint,renovate/golang-version,renovate/all (repository=korosuke613/renovate-playground)
+DEBUG: Branch concurrent limit remaining: 7 (repository=korosuke613/renovate-playground)
+DEBUG: Calculated maximum branches remaining this run: 7 (repository=korosuke613/renovate-playground)
+DEBUG: Branches limit = 7 (repository=korosuke613/renovate-playground)
+DEBUG: syncBranchState() (repository=korosuke613/renovate-playground, branch=renovate/golangci-lint)
+DEBUG: syncBranchState(): Branch cache not found, creating minimal branchState (repository=korosuke613/renovate-playground, branch=renovate/golangci-lint)
+DEBUG: getBranchPr(renovate/golangci-lint) (repository=korosuke613/renovate-playground, branch=renovate/golangci-lint)
+DEBUG: findPr(renovate/golangci-lint, undefined, open) (repository=korosuke613/renovate-playground, branch=renovate/golangci-lint)
+DEBUG: findPr(renovate/golangci-lint, undefined, closed) (repository=korosuke613/renovate-playground, branch=renovate/golangci-lint)
+DEBUG: branchExists=true (repository=korosuke613/renovate-playground, branch=renovate/golangci-lint)
+DEBUG: dependencyDashboardCheck=undefined (repository=korosuke613/renovate-playground, branch=renovate/golangci-lint)
+DEBUG: recreateClosed is false (repository=korosuke613/renovate-playground, branch=renovate/golangci-lint)
+DEBUG: findPr(renovate/golangci-lint, chore(deps): update dependency golangci/golangci-lint to v1.50.1, !open) (repository=korosuke613/renovate-playground, branch=renovate/golangci-lint)
+DEBUG: prAlreadyExisted=false (repository=korosuke613/renovate-playground, branch=renovate/golangci-lint)
+DEBUG: Checking if PR has been edited (repository=korosuke613/renovate-playground, branch=renovate/golangci-lint)
+DEBUG: branch.isModified(): using git to calculate (repository=korosuke613/renovate-playground, branch=renovate/golangci-lint)
+DEBUG: branch.isModified() = true (repository=korosuke613/renovate-playground, branch=renovate/golangci-lint)
+       "branchName": "renovate/golangci-lint",
+       "lastAuthor": "29139614+renovate[bot]@users.noreply.github.com",
+       "gitAuthorEmail": "renovate@whitesourcesoftware.com"
+DEBUG: findPr(renovate/golangci-lint, undefined, !open) (repository=korosuke613/renovate-playground, branch=renovate/golangci-lint)
+DEBUG: Branch has been edited but found no PR - skipping (repository=korosuke613/renovate-playground, branch=renovate/golangci-lint)
+DEBUG: syncBranchState() (repository=korosuke613/renovate-playground, branch=renovate/golang-version)
+DEBUG: syncBranchState(): Branch cache not found, creating minimal branchState (repository=korosuke613/renovate-playground, branch=renovate/golang-version)
+DEBUG: getBranchPr(renovate/golang-version) (repository=korosuke613/renovate-playground, branch=renovate/golang-version)
+DEBUG: findPr(renovate/golang-version, undefined, open) (repository=korosuke613/renovate-playground, branch=renovate/golang-version)
+DEBUG: findPr(renovate/golang-version, undefined, closed) (repository=korosuke613/renovate-playground, branch=renovate/golang-version)
+DEBUG: branchExists=true (repository=korosuke613/renovate-playground, branch=renovate/golang-version)
+DEBUG: dependencyDashboardCheck=undefined (repository=korosuke613/renovate-playground, branch=renovate/golang-version)
+DEBUG: recreateClosed is false (repository=korosuke613/renovate-playground, branch=renovate/golang-version)
+DEBUG: findPr(renovate/golang-version, chore(deps): update golang-version to 1.19, !open) (repository=korosuke613/renovate-playground, branch=renovate/golang-version)
+DEBUG: prAlreadyExisted=false (repository=korosuke613/renovate-playground, branch=renovate/golang-version)
+DEBUG: Checking if PR has been edited (repository=korosuke613/renovate-playground, branch=renovate/golang-version)
+DEBUG: branch.isModified(): using git to calculate (repository=korosuke613/renovate-playground, branch=renovate/golang-version)
+DEBUG: branch.isModified() = true (repository=korosuke613/renovate-playground, branch=renovate/golang-version)
+       "branchName": "renovate/golang-version",
+       "lastAuthor": "29139614+renovate[bot]@users.noreply.github.com",
+       "gitAuthorEmail": "renovate@whitesourcesoftware.com"
+DEBUG: findPr(renovate/golang-version, undefined, !open) (repository=korosuke613/renovate-playground, branch=renovate/golang-version)
+DEBUG: Branch has been edited but found no PR - skipping (repository=korosuke613/renovate-playground, branch=renovate/golang-version)
+DEBUG: syncBranchState() (repository=korosuke613/renovate-playground, branch=renovate/all)
+DEBUG: syncBranchState(): Branch cache not found, creating minimal branchState (repository=korosuke613/renovate-playground, branch=renovate/all)
+DEBUG: getBranchPr(renovate/all) (repository=korosuke613/renovate-playground, branch=renovate/all)
+DEBUG: findPr(renovate/all, undefined, open) (repository=korosuke613/renovate-playground, branch=renovate/all)
+DEBUG: findPr(renovate/all, undefined, closed) (repository=korosuke613/renovate-playground, branch=renovate/all)
+DEBUG: branchExists=true (repository=korosuke613/renovate-playground, branch=renovate/all)
+DEBUG: dependencyDashboardCheck=undefined (repository=korosuke613/renovate-playground, branch=renovate/all)
+DEBUG: recreateClosed is false (repository=korosuke613/renovate-playground, branch=renovate/all)
+DEBUG: findPr(renovate/all, chore(deps): update module go.uber.org/zap to v1.24.0, !open) (repository=korosuke613/renovate-playground, branch=renovate/all)
+DEBUG: prAlreadyExisted=false (repository=korosuke613/renovate-playground, branch=renovate/all)
+DEBUG: Checking if PR has been edited (repository=korosuke613/renovate-playground, branch=renovate/all)
+DEBUG: branch.isModified(): using git to calculate (repository=korosuke613/renovate-playground, branch=renovate/all)
+DEBUG: branch.isModified() = true (repository=korosuke613/renovate-playground, branch=renovate/all)
+       "branchName": "renovate/all",
+       "lastAuthor": "29139614+renovate[bot]@users.noreply.github.com",
+       "gitAuthorEmail": "renovate@whitesourcesoftware.com"
+DEBUG: findPr(renovate/all, undefined, !open) (repository=korosuke613/renovate-playground, branch=renovate/all)
+DEBUG: Branch has been edited but found no PR - skipping (repository=korosuke613/renovate-playground, branch=renovate/all)
+DEBUG: getBranchPr(renovate/golangci-lint) (repository=korosuke613/renovate-playground)
+DEBUG: findPr(renovate/golangci-lint, undefined, open) (repository=korosuke613/renovate-playground)
+DEBUG: findPr(renovate/golangci-lint, undefined, closed) (repository=korosuke613/renovate-playground)
+DEBUG: branch.isBehindBase(): using git to calculate (repository=korosuke613/renovate-playground)
+DEBUG: branch.isBehindBase(): true (repository=korosuke613/renovate-playground)
+       "currentBranch": "main",
+       "currentBranchSha": "3783c59509b9bac6e232f46cfc70aca1a0602af6"
+DEBUG: isBranchConflicted(main, renovate/golangci-lint) (repository=korosuke613/renovate-playground)
+DEBUG: branch.isConflicted(): using git to calculate (repository=korosuke613/renovate-playground)
+DEBUG: Setting git author name: Renovate Bot (repository=korosuke613/renovate-playground)
+DEBUG: Setting git author email: renovate@whitesourcesoftware.com (repository=korosuke613/renovate-playground)
+DEBUG: branch.isConflicted(): false (repository=korosuke613/renovate-playground)
+DEBUG: getBranchPr(renovate/golang-version) (repository=korosuke613/renovate-playground)
+DEBUG: findPr(renovate/golang-version, undefined, open) (repository=korosuke613/renovate-playground)
+DEBUG: findPr(renovate/golang-version, undefined, closed) (repository=korosuke613/renovate-playground)
+DEBUG: branch.isBehindBase(): using git to calculate (repository=korosuke613/renovate-playground)
+DEBUG: branch.isBehindBase(): true (repository=korosuke613/renovate-playground)
+       "currentBranch": "main",
+       "currentBranchSha": "3783c59509b9bac6e232f46cfc70aca1a0602af6"
+DEBUG: isBranchConflicted(main, renovate/golang-version) (repository=korosuke613/renovate-playground)
+DEBUG: branch.isConflicted(): using git to calculate (repository=korosuke613/renovate-playground)
+DEBUG: branch.isConflicted(): false (repository=korosuke613/renovate-playground)
+DEBUG: getBranchPr(renovate/all) (repository=korosuke613/renovate-playground)
+DEBUG: findPr(renovate/all, undefined, open) (repository=korosuke613/renovate-playground)
+DEBUG: findPr(renovate/all, undefined, closed) (repository=korosuke613/renovate-playground)
+DEBUG: branch.isBehindBase(): using git to calculate (repository=korosuke613/renovate-playground)
+DEBUG: branch.isBehindBase(): true (repository=korosuke613/renovate-playground)
+       "currentBranch": "main",
+       "currentBranchSha": "3783c59509b9bac6e232f46cfc70aca1a0602af6"
+DEBUG: isBranchConflicted(main, renovate/all) (repository=korosuke613/renovate-playground)
+DEBUG: branch.isConflicted(): using git to calculate (repository=korosuke613/renovate-playground)
+DEBUG: branch.isConflicted(): false (repository=korosuke613/renovate-playground)
+DEBUG: Ensuring Dependency Dashboard (repository=korosuke613/renovate-playground)
+DEBUG: Found package lookup warnings (repository=korosuke613/renovate-playground)
+       "warnings": ["Failed to look up github-releases dependency goreleaser/goreleaser222"],
+       "warningFiles": [".tool-versions"]
+ INFO: DRY-RUN: Would ensure Dependency Dashboard (repository=korosuke613/renovate-playground)
+       "title": "Dependency Dashboard"
+ INFO: DRY-RUN: Would save repository cache. (repository=korosuke613/renovate-playground)
+DEBUG: Removing any stale branches (repository=korosuke613/renovate-playground)
+DEBUG: config.repoIsOnboarded=true (repository=korosuke613/renovate-playground)
+DEBUG: Branch lists (repository=korosuke613/renovate-playground)
+       "branchList": ["renovate/all", "renovate/golang-version", "renovate/golangci-lint"],
+       "renovateBranches": ["renovate/all", "renovate/golang-version", "renovate/golangci-lint"]
+DEBUG: remainingBranches= (repository=korosuke613/renovate-playground)
+DEBUG: No branches to clean up (repository=korosuke613/renovate-playground)
+DEBUG: PackageFiles.clear() - Package files deleted (repository=korosuke613/renovate-playground)
+DEBUG: Repo is activated (repository=korosuke613/renovate-playground)
+DEBUG: Branch summary (repository=korosuke613/renovate-playground)
+       "cacheModified": undefined,
+       "baseBranches": [{"branchName": "main", "sha": "3783c59509b9bac6e232f46cfc70aca1a0602af6"}],
+       "branches": [
+         {
+           "automerge": false,
+           "baseBranch": "main",
+           "baseBranchSha": "3783c59509b9bac6e232f46cfc70aca1a0602af6",
+           "branchName": "renovate/golangci-lint",
+           "branchSha": "85c22ee0affe89db35d6c3555b2ed56fa5782f3b",
+           "isModified": true,
+           "isPristine": false
+         },
+         {
+           "automerge": false,
+           "baseBranch": "main",
+           "baseBranchSha": "3783c59509b9bac6e232f46cfc70aca1a0602af6",
+           "branchName": "renovate/golang-version",
+           "branchSha": "6ba993e0aef6910f76b7096ebee2ece69ecbf6c7",
+           "isModified": true,
+           "isPristine": false
+         },
+         {
+           "automerge": false,
+           "baseBranch": "main",
+           "baseBranchSha": "3783c59509b9bac6e232f46cfc70aca1a0602af6",
+           "branchName": "renovate/all",
+           "branchSha": "9d62c0e9c132819392fdefb543d865d534ac305b",
+           "isModified": true,
+           "isPristine": false
+         }
+       ],
+       "inactiveBranches": []
+DEBUG: Renovate repository PR statistics (repository=korosuke613/renovate-playground)
+       "stats": {"total": 2, "open": 1, "closed": 0, "merged": 1}
+DEBUG: Repository result: done, status: activated, enabled: true, onboarded: true (repository=korosuke613/renovate-playground)
+DEBUG: Repository timing splits (milliseconds) (repository=korosuke613/renovate-playground)
+       "splits": {"init": 3588, "extract": 147, "lookup": 2657, "onboarding": 1, "update": 559},
+       "total": 9785
+DEBUG: Package cache statistics (repository=korosuke613/renovate-playground)
+       "get": {"count": 2, "avgMs": 24, "medianMs": 15, "maxMs": 33},
+       "set": {"count": 0}
+DEBUG: http statistics (repository=korosuke613/renovate-playground)
+       "urls": {
+         "https://api.github.com/graphql (POST,200)": 6,
+         "https://api.github.com/repos/golangci/golangci-lint/releases (GET,200)": 1,
+         "https://api.github.com/repos/goreleaser/goreleaser222/releases (GET,404)": 1,
+         "https://api.github.com/repos/korosuke613/renovate-playground/pulls (GET,200)": 1,
+         "https://api.github.com/repositories/132145189/releases (GET,200)": 1
+       },
+       "hostStats": {"api.github.com": {"requestCount": 10, "requestAvgMs": 587, "queueAvgMs": 0}},
+       "totalRequests": 10
+DEBUG: dns cache (repository=korosuke613/renovate-playground)
+       "hosts": []
+ INFO: Repository finished (repository=korosuke613/renovate-playground)
+       "cloned": true,
+       "durationMs": 9785
+DEBUG: Renovate exiting
