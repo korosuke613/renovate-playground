@@ -1,0 +1,43 @@
+{
+  "extends": [
+    ":label(renovate)",
+    ":prConcurrentLimit10",
+    ":timezone(Asia/Tokyo)",
+    ":enableVulnerabilityAlertsWithLabel(security)",
+    ":semanticCommitTypeAll(chore)",
+    "schedule:monthly"
+  ],
+  "dependencyDashboard": true,
+  "dependencyDashboardLabels": ["renovate"],
+  "postUpdateOptions": [
+    "gomodTidy"
+  ],
+  "groupName": "all",
+  "regexManagers": [
+    {
+      "fileMatch": ["^.tool-versions$"],
+      "matchStrings": ["golang (?<currentValue>\\d+\\.\\d+\\.\\d+)"],
+      "datasourceTemplate": "golang-version",
+      "depNameTemplate": "tool-versions/golang-version"
+    },
+    {
+      "fileMatch": ["^.tool-versions$"],
+      "matchStrings": ["golangci-lint (?<currentValue>\\d+\\.\\d+\\.\\d+)"],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "golangci/golangci-lint",
+      "extractVersionTemplate": "^v(?<version>.*)$"
+    }
+  ],
+  "packageRules": [
+    {
+      "groupName": "golang-version",
+      "matchDatasources": ["golang-version"],
+      "matchManagers": ["gomod"]
+    },
+    {
+      "groupName": "golangci-lint",
+      "matchManagers": ["regex"],
+      "matchPackageNames": ["golangci/golangci-lint"]
+    }
+  ]
+}
