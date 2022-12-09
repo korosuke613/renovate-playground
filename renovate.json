@@ -35,6 +35,11 @@
       "matchManagers": ["gomod"]
     },
     {
+      "groupName": "golang-version",
+      "matchManagers": ["regex"],
+      "matchPackageNames": ["tool-versions/golang-version"]
+    },
+    {
       "groupName": "golangci-lint",
       "matchManagers": ["regex"],
       "matchPackageNames": ["golangci/golangci-lint"]
