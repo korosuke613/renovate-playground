@@ -25,6 +25,13 @@
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "golangci/golangci-lint",
       "extractVersionTemplate": "^v(?<version>.*)$"
+    },
+    {
+      "fileMatch": ["^.tool-versions$"],
+      "matchStrings": ["goreleaser (?<currentValue>\\d+\\.\\d+\\.\\d+)"],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "goreleaser/goreleaser",
+      "extractVersionTemplate": "^v(?<version>.*)$"
     }
   ],
   "packageRules": [
@@ -47,6 +54,11 @@
       "groupName": "golangci-lint",
       "matchManagers": ["regex"],
       "matchPackageNames": ["golangci/golangci-lint"]
+    },
+    {
+      "groupName": "goreleaser",
+      "matchManagers": ["regex"],
+      "matchPackageNames": ["goreleaser/goreleaser"]
     }
   ]
 }
