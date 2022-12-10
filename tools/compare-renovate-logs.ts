@@ -70,7 +70,9 @@ const getPackageFilesWithUpdates = (parsed: RenovateJsonLog) => {
         config[managerName].forEach(
             (packageUpdate)=>{
                 console.debug(`PackageFile: ${packageUpdate.packageFile}`)
-                tmpPackageUpdates[packageUpdate.packageFile] = {}
+                if(! Object.hasOwn(tmpPackageUpdates, packageUpdate.packageFile)){
+                    tmpPackageUpdates[packageUpdate.packageFile] = {}
+                }
                 packageUpdate.deps.forEach((dep)=>{
                     console.debug(`Dep: ${dep.depName}`)
                     tmpPackageUpdates[packageUpdate.packageFile][dep.depName] = dep
