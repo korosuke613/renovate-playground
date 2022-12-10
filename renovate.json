@@ -12,7 +12,6 @@
   "postUpdateOptions": [
     "gomodTidy"
   ],
-  "groupName": "all",
   "regexManagers": [
     {
       "fileMatch": ["^.tool-versions$"],
@@ -29,6 +28,9 @@
     }
   ],
   "packageRules": [
+    {
+      "groupName": "all"
+    },
     {
       "groupName": "golang-version",
       "matchDatasources": ["golang-version"],
