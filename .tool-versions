@@ -1,3 +1,3 @@
 goreleaser 0.183.0
 golang 1.18.1
-golangci-lint 1.49.0
+golangci-lint 1.50.1
