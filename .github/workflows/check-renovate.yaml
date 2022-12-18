@@ -1,0 +1,10 @@
+name: Compare Renovate logs
+
+on:
+  push:
+
+jobs:
+  compare-renovate-logs:
+    uses: korosuke613/compare-renovate-logs-workflow/.github/workflows/compare-renovate-logs.yaml@v1
+    with:
+      renovate-config-file: renovate.json
