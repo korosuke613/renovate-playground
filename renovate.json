@@ -16,7 +16,7 @@
     {
       "groupName": "tools",
       "matchManagers": ["regex"],
-      "matchPackageNames": ["golangci/golangci-rint"]
+      "matchPackageNames": ["golangci/golangci-lint"]
     }
   ]
 }
