@@ -1,24 +1,9 @@
 {
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    ":label(renovate)",
-    ":prConcurrentLimit10",
-    ":timezone(Asia/Tokyo)",
-    ":enableVulnerabilityAlertsWithLabel(security)",
-    ":semanticCommitTypeAll(chore)",
-    "schedule:monthly"
-  ],
-  "dependencyDashboard": true,
-  "dependencyDashboardLabels": ["renovate"],
-  "postUpdateOptions": [
-    "gomodTidy"
+    "config:base"
   ],
   "regexManagers": [
-    {
-      "fileMatch": ["^.tool-versions$"],
-      "matchStrings": ["golang (?<currentValue>\\d+\\.\\d+\\.\\d+)"],
-      "datasourceTemplate": "golang-version",
-      "depNameTemplate": "tool-versions/golang-version"
-    },
     {
       "fileMatch": ["^.tool-versions$"],
       "matchStrings": ["golangci-lint (?<currentValue>\\d+\\.\\d+\\.\\d+)"],
@@ -28,23 +13,8 @@
     }
   ],
   "packageRules": [
-    { 
-      "groupName": "gomod",
-      "matchDatasources": ["go"],
-      "matchManagers": ["gomod"]
-    },
     {
-      "groupName": "golang-version",
-      "matchDatasources": ["golang-version"],
-      "matchManagers": ["gomod"]
-    },
-    {
-      "groupName": "golang-version",
-      "matchManagers": ["regex"],
-      "matchPackageNames": ["tool-versions/golang-version"]
-    },
-    {
-      "groupName": "golangci-lint",
+      "groupName": "tools",
       "matchManagers": ["regex"],
       "matchPackageNames": ["golangci/golangci-lint"]
     }
